@@ -1,0 +1,198 @@
+/* =========================================================
+   PAGE BACKGROUND SETTINGS
+   - Controls full screen background image
+   - Change image URL here if needed
+========================================================= */
+.landing-container {
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width */
+  background-image: url("https://plus.unsplash.com/premium_photo-1730005721833-62fbdb9193d3"); /* Background image */
+  background-size: cover; /* Cover entire screen */
+  background-position: center; /* Center image */
+  position: relative; /* Required for absolute children */
+  color: white; /* Default text color */
+}
+
+/* Dark overlay for readability over image */
+.landing-overlay {
+  position: absolute;
+  inset: 0; /* Covers entire container */
+  background: rgba(0, 0, 0, 0.45); /* Adjust darkness here */
+}
+
+/* =========================================================
+   BRAND / LOGO SECTION
+   - Placeholder logo + project name
+   - Replace logo later without layout change
+========================================================= */
+.brand {
+  position: absolute;
+  top: 6%; /* Distance from top of screen */
+  left: 6%; /* Distance from left */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between logo and name */
+}
+
+/* Circular logo placeholder */
+.logo-placeholder {
+  width: 45px; /* Logo size */
+  height: 45px;
+  border-radius: 50%; /* Makes it round */
+  background: rgba(255,255,255,0.85); /* Light background */
+  color: #2e2e2e; /* Logo symbol color */
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Project name text */
+.brand-name {
+  font-size: 50px; /* Project name size */
+  font-weight: 700; /* Bold */
+  letter-spacing: 0.6px; /* Slight spacing for elegance */
+}
+
+/* =========================================================
+   HERO TEXT (POSTER STYLE)
+   - Main editorial typography
+   - This is the visual focus
+========================================================= */
+.hero-text {
+  position: absolute;
+  top: 23%;
+  left: 6%;
+  max-width: 820px;   /* ⬅ makes headline stretch toward card */
+}
+
+
+/* Small uppercase line above main heading */
+.hero-small {
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Spaced letters */
+  font-size: 15px;
+  opacity: 0.85; /* Softer appearance */
+}
+
+/* Main headline */
+.hero-main {
+  font-size: 65px; /* BIG poster text – change here */
+  font-weight: 800; /* Heavy weight */
+  line-height: 1.05; /* Tight vertical spacing */
+  margin: 10px 0;
+}
+
+/* Highlighted word (KINDNESS) */
+.hero-main span {
+  color: #f5d38c; /* Accent color */
+}
+
+/* Decorative accent line under heading */
+.hero-accent {
+  width: 500px; /* Line length */
+  height: 4px; /* Line thickness */
+  background: #f5d38c; /* Same accent color */
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+/* =========================================================
+   ABOUT TEXT (STORY SECTION)
+   - Positioned on background (not in card)
+========================================================= */
+.about-text {
+  position: absolute;
+  bottom: 16%;
+  left: 6%;
+  max-width: 600px;   /* ⬅ fills the horizontal gap */
+  font-size: 20px;
+  opacity: 0.95; /* Slight transparency */
+}
+
+/* Emphasized words */
+.about-text strong {
+  color: #ffffff;
+}
+
+/* =========================================================
+   CTA CARD (GLASS EFFECT)
+   - Primary action area
+   - EDIT SIZE & POSITION HERE
+========================================================= */
+.landing-card {
+  position: absolute;
+  right:8%; /* Distance from right edge */
+  top: 50%; /* Vertical center */
+  transform: translateY(-50%); /* Perfect centering */
+
+  width: 500px;        /* 🔧 CHANGE CARD WIDTH HERE */
+  padding: 44px 48px;  /* 🔧 CHANGE INNER SPACING HERE */
+
+  border-radius: 26px; /* 🔧 Corner roundness */
+  text-align: center;
+}
+
+/* Glass effect styling */
+.landing-card.glass {
+  background: rgba(255, 255, 255, 0.10); /* Glass transparency */
+  border: 1px solid rgba(255, 255, 255, 0.28); /* Glass border */
+}
+
+/* =========================================================
+   CTA TEXT & BUTTON LAYOUT
+========================================================= */
+.cta-text {
+  font-size: 30px; /* CTA heading size */
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+/* Button stack */
+.landing-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* Space between buttons */
+}
+
+/* =========================================================
+   BUTTON STYLES
+========================================================= */
+.btn {
+  padding: 16px 32px; /* Button size */
+  border-radius: 28px; /* Rounded buttons */
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+/* Primary button (Login) */
+.btn.primary {
+  background: white;
+  color: #2e2e2e;
+}
+
+/* Hover effect */
+.btn.primary:hover {
+  transform: translateY(-2px);
+}
+
+/* Secondary button (Sign Up) */
+.btn.secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Secondary hover */
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================================
+   CARD HOVER EFFECT
+========================================================= */
+.landing-card:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}

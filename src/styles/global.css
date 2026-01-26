@@ -1,0 +1,17 @@
+:root {
+  --primary: #059669;
+  --primary-hover: #047857;
+  --sidebar-bg: #0f172a; 
+  --bg-main: #f8fafc;
+  --border: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --white: #ffffff;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 70px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background-color: var(--bg-main); color: var(--text-main); }

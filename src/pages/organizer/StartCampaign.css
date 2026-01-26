@@ -1,0 +1,90 @@
+.form-shell {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  background: var(--white);
+  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 1200px; /* Slightly wider for full-page feel */
+  box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.02);
+  margin-top: 20px;
+}
+
+.form-context-panel {
+  background: #f8fafc;
+  padding: 3rem;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-context-panel h2 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.form-context-panel p {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.deployment-guidelines {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 2rem;
+}
+
+.deployment-guidelines span {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+.pro-input-area {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-row { display: flex; flex-direction: column; gap: 8px; }
+.input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+.pro-input-area label { font-size: 0.65rem; font-weight: 800; color: var(--text-main); letter-spacing: 1px; }
+
+.pro-input-area input, 
+.pro-input-area textarea {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  outline: none;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s;
+}
+
+.pro-input-area input:focus, 
+.pro-input-area textarea:focus { border-color: var(--primary); }
+
+.form-footer { margin-top: 1rem; display: flex; justify-content: flex-end; gap: 1rem; }
+
+.btn-ghost { background: none; border: 1px solid var(--border); padding: 12px 24px; font-weight: 800; font-size: 0.7rem; cursor: pointer; }
+.btn-solid { background: var(--primary); color: white; border: none; padding: 12px 32px; font-weight: 800; font-size: 0.7rem; letter-spacing: 1px; cursor: pointer; }
+.btn-solid:hover { background: var(--primary-hover); }
+.btn-solid:disabled { opacity: 0.5; cursor: not-allowed; }

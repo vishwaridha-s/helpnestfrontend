@@ -1,0 +1,65 @@
+.org-shell { 
+  display: flex; 
+  height: 100vh; 
+  width: 100vw; 
+  background-color: var(--bg-main); /* Light slate/gray */
+}
+
+.org-sidebar {
+  width: 250px;
+  background: #ffffff; /* Stark white sidebar */
+  border-right: 1px solid var(--border); /* Clean separator */
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 0;
+}
+
+.sidebar-brand {
+  padding: 0 1.5rem 3.5rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+.sidebar-brand span { 
+  color: var(--primary); 
+  font-size: 0.65rem; 
+  background: var(--primary-light);
+  padding: 2px 6px;
+  margin-left: 5px;
+}
+
+.sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+
+.sidebar-nav a {
+  padding: 1.1rem 1.5rem;
+  color: var(--text-muted); /* Slate gray text */
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.sidebar-nav a:hover { 
+  background: #f8fafc; 
+  color: var(--primary); 
+}
+
+/* The "Lighting Effect" for Light Theme */
+.sidebar-nav a.active {
+  background: linear-gradient(90deg, #f0fdf4 0%, rgba(255, 255, 255, 0) 100%);
+  color: var(--primary);
+  border-left: 4px solid var(--primary);
+  /* Subtle glow on the text */
+  text-shadow: 0 0 15px rgba(5, 150, 105, 0.2); 
+}
+
+.org-viewport { 
+  flex: 1; 
+  padding: 3rem; 
+  overflow-y: auto; 
+  background-color: #f8fafc; /* Slightly off-white for contrast against the white sidebar */
+}

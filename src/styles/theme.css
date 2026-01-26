@@ -1,0 +1,28 @@
+:root {
+  /* High-Contrast Emerald & Slate */
+  --primary: #059669;
+  --primary-hover: #047857;
+  --sidebar-bg: #0f172a; /* Deep Navy/Slate for contrast */
+  --bg-main: #f8fafc;
+  --border: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --white: #ffffff;
+  
+  /* Sharp Corners for Professional Look */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  overflow: hidden; /* Main shell handles scrolling */
+}
