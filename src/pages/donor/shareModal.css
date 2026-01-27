@@ -1,0 +1,15 @@
+.share-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.share-card { background: white; width: 90%; max-width: 400px; padding: 2rem; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+.share-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.share-header h3 { font-size: 1.1rem; font-weight: 900; color: #1e293b; }
+.close-btn { background: none; border: none; font-size: 1.5rem; color: #94a3b8; cursor: pointer; }
+
+.share-preview { display: flex; gap: 1rem; background: #f8fafc; padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem; align-items: center; }
+.share-preview img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+.preview-text strong { display: block; font-size: 0.85rem; color: #1e293b; }
+.preview-text p { font-size: 0.75rem; color: #64748b; margin: 0; }
+
+.social-btn.wa { width: 100%; background: #25D366; color: white; border: none; padding: 0.8rem; border-radius: 8px; font-weight: 800; margin-bottom: 1rem; cursor: pointer; }
+.link-copy-area { display: flex; background: #f1f5f9; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; }
+.link-copy-area input { flex: 1; background: transparent; border: none; padding: 0.8rem; font-size: 0.7rem; color: #64748b; outline: none; }
+.link-copy-area button { background: #1e293b; color: white; border: none; padding: 0 1rem; font-weight: 800; font-size: 0.7rem; cursor: pointer; }

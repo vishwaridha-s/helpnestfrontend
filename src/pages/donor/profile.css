@@ -1,0 +1,27 @@
+.profile-wrapper { width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-start; padding: 40px; }
+.profile-card { 
+  display: grid; grid-template-columns: 300px 1fr; background: white; 
+  border: 1px solid var(--border); width: 100%; max-width: 1000px;
+  box-shadow: 15px 15px 0px rgba(0,0,0,0.02);
+}
+
+.profile-sidebar { 
+  background: #f8fafc; padding: 3rem; border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.avatar-circle { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 4px solid var(--primary); background: white; margin-bottom: 1.5rem; }
+.avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
+.role-tag { background: var(--primary); color: white; padding: 4px 12px; font-size: 0.6rem; font-weight: 900; border-radius: 20px; margin-top: 10px; }
+
+.profile-main { padding: 4rem; display: flex; flex-direction: column; justify-content: space-between; }
+.detail-section h3 { font-size: 0.8rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 2rem; color: var(--text-muted); }
+.detail-row { margin-bottom: 2rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 1rem; }
+.detail-row label { font-size: 0.6rem; font-weight: 800; color: var(--primary); display: block; margin-bottom: 5px; }
+.detail-row p { font-size: 1rem; font-weight: 600; color: var(--text-main); }
+.status-verified { color: var(--primary); font-weight: 800; font-size: 0.8rem; }
+
+.logout-btn { 
+  background: #0f172a; color: white; border: none; padding: 15px; width: 100%;
+  font-weight: 800; font-size: 0.7rem; letter-spacing: 2px; cursor: pointer; transition: 0.3s;
+}
+.logout-btn:hover { background: #ef4444; }

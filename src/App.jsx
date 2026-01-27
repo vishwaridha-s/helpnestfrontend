@@ -12,8 +12,13 @@ import MyCampaigns from "./pages/organizer/MyCampaigns";
 import Profile from "./pages/organizer/Profile";
 import CampaignHistory from "./pages/organizer/CampaignHistory";
 
-// Donor Components (Placeholders for your next phase)
-import DonorCampaigns from "./pages/donor/Campaigns";
+// Donor Components
+import DonorLayout from "./pages/donor/DonorLayout"; // Create this in donor folder
+import DonorExplore from "./pages/donor/DonorExplore"; 
+import DonorMyDonations from "./pages/donor/MyDonation"; 
+import DonorPools from "./pages/donor/DonorPools"; // This is the "Dashboard" for pools
+import Donate from "./pages/donor/Donate";
+import StartPool from "./pages/donor/StartPool";
 
 function App() {
   return (
@@ -23,23 +28,31 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/oauth2/redirect" element={<OAuthRedirect />} />
 
-        {/* ORGANIZER MODULE - Refactored for High-Density UI */}
+        {/* ORGANIZER MODULE */}
         <Route path="/organizer" element={<OrganizerLayout />}>
-          {/* Default to dashboard */}
           <Route index element={<Navigate to="dashboard" replace />} />
-          
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="my-campaigns" element={<MyCampaigns />} />
           <Route path="profile" element={<Profile />} />
           <Route path="history" element={<CampaignHistory />} />
-          
-          {/* Functional Route: Accessed via Dashboard button */}
           <Route path="start-campaign" element={<StartCampaign />} />
         </Route>
 
-        {/* DONOR MODULE */}
-        <Route path="/donor/campaigns" element={<DonorCampaigns />} />
-        
+        {/* DONOR MODULE - Parallel structure to Organizer */}
+        <Route path="/donor" element={<DonorLayout />}>
+          {/* Default to explore feed */}
+          <Route index element={<Navigate to="explore" replace />} />
+          
+          <Route path="explore" element={<DonorExplore />} />
+          <Route path="my-donations" element={<DonorMyDonations />} />
+          <Route path="my-pools" element={<DonorPools />} />
+          <Route path="profile" element={<Profile />} /> {/* Reusing the same Profile component */}
+          
+          {/* Functional Donor Routes */}
+          <Route path="donate/:id" element={<Donate />} />
+          <Route path="create-pool" element={<StartPool />} />
+        </Route>
+
         {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

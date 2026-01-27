@@ -1,0 +1,13 @@
+.donate-viewport { display: flex; justify-content: center; padding-top: 5vh; }
+.donate-wizard-card { background: white; width: 100%; max-width: 480px; padding: 3.5rem; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08); text-align: center; }
+.wizard-stepper { display: inline-block; background: #ecfdf5; color: #059669; font-size: 0.65rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; margin-bottom: 1.5rem; }
+.wizard-title { font-size: 1.1rem; font-weight: 900; color: #1e293b; letter-spacing: -0.5px; margin-bottom: 2.5rem; }
+.wizard-step { display: flex; flex-direction: column; gap: 1rem; text-align: left; }
+.wizard-step label { font-size: 0.65rem; font-weight: 800; color: #94a3b8; letter-spacing: 0.5px; margin-bottom: 5px; }
+.wizard-input { padding: 1.2rem; font-size: 1.8rem; font-weight: 800; border: 2px solid #f1f5f9; border-radius: 12px; text-align: center; color: #1e293b; transition: 0.2s; }
+.wizard-input:focus { border-color: #059669; outline: none; background: #f0fdf4; }
+.otp-field { letter-spacing: 12px; font-family: monospace; }
+.btn-wizard-next { padding: 1.1rem; background: #1e293b; color: white; border: none; border-radius: 12px; font-weight: 800; font-size: 0.8rem; cursor: pointer; margin-top: 1rem; }
+.btn-wizard-next:hover { background: #334155; }
+.card-input-wrapper { padding: 1.2rem; border: 2px solid #f1f5f9; border-radius: 12px; margin-bottom: 1.5rem; }
+.btn-confirm-pay { width: 100%; padding: 1.1rem; background: #059669; color: white; border: none; border-radius: 12px; font-weight: 800; font-size: 0.8rem; cursor: pointer; }

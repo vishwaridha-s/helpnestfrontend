@@ -65,3 +65,188 @@ h3 { font-size: 0.85rem; font-weight: 800; margin-bottom: 2rem; color: var(--tex
   font-weight: 700;
   letter-spacing: 1px;
 }
+
+/* Container for the vertical bars */
+.graph-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 300px; /* Fixed height for the graph area */
+  padding-top: 40px;
+  margin-top: 2rem;
+  border-bottom: 2px solid var(--border);
+  gap: 10px;
+}
+
+.v-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 80px;
+  height: 100%;
+}
+
+.v-bar-track {
+  position: relative;
+  width: 40px;
+  height: 100%;
+  background: #f1f5f9;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: flex-end; /* Ensures bars grow from bottom */
+  transition: all 0.3s ease;
+}
+
+.v-bar-fill {
+  width: 100%;
+  background: var(--primary);
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  transition: height 1s ease-out;
+}
+
+/* Tooltip-style label on top of bar */
+.v-label {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  font-weight: 800;
+  white-space: nowrap;
+  color: var(--primary);
+}
+
+.v-bar-info {
+  margin-top: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.v-name {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--text-main);
+  text-transform: uppercase;
+  width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.v-donors {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Hover effect */
+.v-bar-track:hover {
+  background: #e2e8f0;
+}
+.v-bar-track:hover .v-bar-fill {
+  filter: brightness(1.1);
+}
+
+/* Container for the vertical bars */
+.graph-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start; /* Aligns bars nicely */
+  height: 350px; 
+  padding: 40px 20px 20px 20px;
+  margin-top: 1rem;
+  background: #fafafa;
+  border-radius: 12px;
+  gap: 25px;
+  overflow-x: auto;
+  border: 1px inset #eee;
+}
+
+.v-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+  height: 100%;
+}
+
+.v-bar-track {
+  position: relative;
+  width: 45px;
+  height: 100%;
+  background: #eef2f6; /* Subtle track color */
+  border-radius: 8px 8px 2px 2px;
+  display: flex;
+  align-items: flex-end;
+  border: 1px solid #dee5ed;
+  transition: background 0.3s;
+}
+
+.v-bar-fill {
+  width: 100%;
+  border-radius: 6px 6px 2px 2px;
+  position: relative;
+  /* Animates the height change smoothly */
+  transition: height 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67); 
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+}
+
+.v-percent-tag {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.v-bar-info {
+  margin-top: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.v-name {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #1e293b;
+  text-transform: uppercase;
+  max-width: 85px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.v-amount {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.v-donors {
+  font-size: 0.6rem;
+  color: #64748b;
+  font-weight: 600;
+  background: #f1f5f9;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Hover Effects */
+.v-bar-track:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.v-bar-track:hover .v-bar-fill {
+  filter: brightness(1.1);
+  transform: scaleX(1.05);
+}

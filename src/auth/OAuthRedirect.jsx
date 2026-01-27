@@ -7,78 +7,56 @@ function OAuthRedirect() {
   const selectedRole = localStorage.getItem("selectedRole");
 
   useEffect(() => {
-    async function resolveAuth() {
+    const resolveAuth = async () => {
       try {
         // 1️⃣ Read token from URL
         const params = new URLSearchParams(window.location.search);
         const tokenFromUrl = params.get("token");
 
-        // 2️⃣ Save token immediately
+        // 2️⃣ Save token ONCE
         if (tokenFromUrl) {
           localStorage.setItem("token", tokenFromUrl);
+          API.defaults.headers.common.Authorization = `Bearer ${tokenFromUrl}`;
           window.history.replaceState({}, document.title, "/oauth2/redirect");
         }
 
+        // 3️⃣ Ensure token exists
         const token = localStorage.getItem("token");
-        if (!token) {
-          throw new Error("JWT missing after OAuth redirect");
-        }
-        if (tokenFromUrl) {
-  localStorage.setItem("token", tokenFromUrl);
+        if (!token) throw new Error("JWT missing");
 
-  // 🔴 THIS LINE IS CRITICAL
-  API.defaults.headers.common.Authorization = `Bearer ${tokenFromUrl}`;
-
-  window.history.replaceState({}, document.title, "/oauth2/redirect");
-}
-
-
-        // 3️⃣ Fetch current user WITH MANUAL AUTH HEADER (CRITICAL)
+        // 4️⃣ Fetch current user
         let res;
         try {
-          res = await API.get("/api/auth/me", {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          });
+          res = await API.get("/api/auth/me");
         } catch (err) {
-          // 4️⃣ If new user → register once
           if (err.response?.status === 404 && selectedRole) {
-            await API.get(`/api/auth/register?role=${selectedRole}`, {
-              headers: {
-                Authorization: `Bearer ${token}`
-              }
-            });
-
-            // retry after register
-            res = await API.get("/api/auth/me", {
-              headers: {
-                Authorization: `Bearer ${token}`
-              }
-            });
+            await API.get(`/api/auth/register?role=${selectedRole}`);
+            res = await API.get("/api/auth/me");
           } else {
             throw err;
           }
         }
 
-        // 5️⃣ Save user info
-        const data = res.data;
-        localStorage.setItem("user", JSON.stringify(data.user));
-        localStorage.setItem("role", data.user.role);
-        localStorage.removeItem("selectedRole");
+        const user = res.data.user;
 
-        // 6️⃣ Navigate by role
-        if (data.user.role === "ORGANIZER") {
-          navigate("/organizer/dashboard", { replace: true });
-        } else {
-          navigate("/donor/campaigns", { replace: true });
-        }
+localStorage.setItem("token", res.data.token);
+API.defaults.headers.common.Authorization = `Bearer ${res.data.token}`;
 
-      } catch (error) {
-        console.error("OAuth redirect failed:", error);
+localStorage.setItem("user", JSON.stringify(user));
+localStorage.setItem("role", user.role);
+localStorage.removeItem("selectedRole");
+
+        navigate(
+          user.role === "ORGANIZER"
+            ? "/organizer/dashboard"
+            : "/donor/explore",
+          { replace: true }
+        );
+      } catch (err) {
+        console.error("OAuth redirect failed:", err);
         navigate("/", { replace: true });
       }
-    }
+    };
 
     resolveAuth();
   }, [navigate, selectedRole]);
@@ -94,6 +72,7 @@ function OAuthRedirect() {
   );
 }
 
+/* ✅ STYLES (REQUIRED) */
 const containerStyle = {
   height: "100vh",
   display: "grid",
