@@ -9,22 +9,18 @@ function OAuthRedirect() {
   useEffect(() => {
     const resolveAuth = async () => {
       try {
-        // 1️⃣ Read token from URL
         const params = new URLSearchParams(window.location.search);
         const tokenFromUrl = params.get("token");
 
-        // 2️⃣ Save token ONCE
         if (tokenFromUrl) {
           localStorage.setItem("token", tokenFromUrl);
           API.defaults.headers.common.Authorization = `Bearer ${tokenFromUrl}`;
           window.history.replaceState({}, document.title, "/oauth2/redirect");
         }
 
-        // 3️⃣ Ensure token exists
         const token = localStorage.getItem("token");
         if (!token) throw new Error("JWT missing");
 
-        // 4️⃣ Fetch current user
         let res;
         try {
           res = await API.get("/api/auth/me");
