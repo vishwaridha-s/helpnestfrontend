@@ -1,7 +1,9 @@
 import "./Landing.css";
 
 function Landing() {
-  const OAUTH_URL = "http://localhost:8080/oauth2/authorization/google";
+  // ✅ OAuth URL (works for BOTH local + production)
+  const OAUTH_URL =
+    import.meta.env.VITE_API_BASE_URL + "/oauth2/authorization/google";
 
   // REGISTER FLOW (role chosen)
   const handleOAuth = (role) => {
@@ -44,7 +46,8 @@ function Landing() {
           it’s made actionable. Our platform brings compassion and technology
           together to help individuals and organizations support causes that
           truly matter.
-          <br /><br />
+          <br />
+          <br />
           Every campaign represents hope. Every contribution creates impact.
           Together, we’re nurturing a community built on empathy, trust, and
           meaningful change.
@@ -62,7 +65,6 @@ function Landing() {
 
         {/* REGISTER BUTTONS */}
         <div className="landing-actions">
-          {/* REGISTER AS DONOR */}
           <button
             className="btn primary oauth-btn"
             onClick={() => handleOAuth("DONOR")}
@@ -70,7 +72,6 @@ function Landing() {
             Register as Donor
           </button>
 
-          {/* REGISTER AS ORGANIZER */}
           <button
             className="btn secondary oauth-btn"
             onClick={() => handleOAuth("ORGANIZER")}
