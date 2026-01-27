@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../api/axios";
-import "./startCampaign.css";
+import "./StartCampaign.css";
 
 function StartCampaign() {
   const [formData, setFormData] = useState({ title: "", targetAmount: "", description: "" });

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import API from "../../api/axios"; 
 import "./dashboard.css";
 
-// Vivid color palette for different bars
 const VIBRANT_COLORS = ["#3b82f6", "#8b5cf6", "#ec4899", "#f59e0b", "#10b981", "#06b6d4", "#f43f5e"];
 
 function Dashboard() {
