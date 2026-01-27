@@ -1,4 +1,4 @@
-import "./landing.css";
+import "./Landing.css";
 
 function Landing() {
   const OAUTH_URL = "http://localhost:8080/oauth2/authorization/google";
