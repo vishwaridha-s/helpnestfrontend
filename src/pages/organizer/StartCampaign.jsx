@@ -22,7 +22,6 @@ function StartCampaign() {
     data.append("image", image);
 
     try {
-      // Axios automatically handles the Boundary for FormData
       await API.post("/api/campaigns", data);
       navigate("/organizer/my-campaigns");
     } catch (err) {

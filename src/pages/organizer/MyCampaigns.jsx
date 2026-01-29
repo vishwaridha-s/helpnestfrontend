@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../../api/axios";
 import "./myCampaigns.css";
 
-const SERVER_URL = "http://localhost:8080";
+const SERVER_URL = import.meta.env.VITE_API_BASE_URL;
 
 function MyCampaigns() {
   const [list, setList] = useState([]);
@@ -16,7 +16,6 @@ function MyCampaigns() {
     setLoading(true);
     API.get("/api/campaigns/my")
       .then(res => {
-        // Filtering for ACTIVE status as per your requirement
         setList(res.data.filter(c => c.status === "ACTIVE"));
       })
       .catch(err => console.error("Fetch Error", err))

@@ -10,13 +10,9 @@ function MyDonation() {
       .then(res => setHistory(res.data))
       .catch(err => console.error("History fetch error:", err));
   }, []);
-
-  // Helper function to format the Date and Time safely
   const formatDateTime = (dateString) => {
     if (!dateString) return "N/A";
     const date = new Date(dateString);
-    
-    // Check if the date is valid before formatting
     if (isNaN(date.getTime())) return "Invalid Date Format";
 
     return (

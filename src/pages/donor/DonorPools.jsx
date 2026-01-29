@@ -10,11 +10,8 @@ function DonorPools() {
 
   useEffect(() => {
     setLoading(true);
-    // FIX: Targeting the correct @GetMapping("/pools/my") which returns List<Campaign>
     API.get("/api/campaigns/pools/my")
       .then((res) => {
-        // Since the backend returns List<Campaign>, res.data IS the array.
-        // We ensure it's an array before setting state.
         const data = Array.isArray(res.data) ? res.data : [];
         setPools(data);
       })
@@ -68,12 +65,10 @@ function DonorPools() {
               <div className="pool-mini-stats">
                 <div className="stat">
                   <span>COLLECTED</span>
-                  {/* Matching entity field name 'collectedAmount' */}
                   <strong>₹{p.collectedAmount?.toLocaleString('en-IN') || 0}</strong>
                 </div>
                 <div className="stat">
                   <span>TARGET</span>
-                  {/* Matching entity field name 'targetAmount' */}
                   <strong>₹{p.targetAmount?.toLocaleString('en-IN') || 0}</strong>
                 </div>
               </div>

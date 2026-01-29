@@ -59,7 +59,6 @@ function Dashboard() {
           {hasStats ? (
             data.campaigns.map((c, index) => {
               const percentage = c.targetAmount > 0 ? (c.collectedAmount / c.targetAmount) * 100 : 0;
-              // Cycle through the color array based on the index
               const barColor = VIBRANT_COLORS[index % VIBRANT_COLORS.length];
               
               return (

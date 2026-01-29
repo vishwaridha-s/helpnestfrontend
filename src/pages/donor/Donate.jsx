@@ -18,12 +18,10 @@ const StripePaymentForm = ({ campaignId, amount, donorEmail, onSuccess }) => {
     setIsProcessing(true);
 
     try {
-      // Step 1: Create Payment Intent
       const { data: intentData } = await API.post("/api/payments/create", null, {
         params: { amount: amount }
       });
 
-      // Step 2: Confirm Payment with Stripe
       const result = await stripe.confirmCardPayment(intentData.clientSecret, {
         payment_method: { 
           card: elements.getElement(CardElement) 
@@ -34,13 +32,12 @@ const StripePaymentForm = ({ campaignId, amount, donorEmail, onSuccess }) => {
         alert(result.error.message);
       } else if (result.paymentIntent.status === "succeeded") {
         
-        // Step 3: Confirm with Backend (MATCHING YOUR ENTITY FIELDS)
         await API.post(`/api/donations/${campaignId}/confirm-stripe`, {
-          amount: parseFloat(amount),           // Matches Double amount
-          donorEmail: donorEmail,               // REQUIRED for OTP check in backend
-          paymentIntentId: result.paymentIntent.id, // Matches String paymentIntentId
-          paymentStatus: "SUCCESS",             // Matches String paymentStatus
-          paymentMethod: "CARD"                 // Matches String paymentMethod
+          amount: parseFloat(amount),
+          donorEmail: donorEmail,
+          paymentIntentId: result.paymentIntent.id,
+          paymentStatus: "SUCCESS",
+          paymentMethod: "CARD"
         });
         
         alert("Thank you! Donation successful.");
@@ -48,7 +45,6 @@ const StripePaymentForm = ({ campaignId, amount, donorEmail, onSuccess }) => {
       }
     } catch (err) { 
       console.error(err);
-      // Better error messaging
       const errorMsg = err.response?.data?.message || "Payment Confirmation Failed";
       alert(errorMsg); 
     } finally {
@@ -86,9 +82,8 @@ function Donate() {
   const [loading, setLoading] = useState(false);
   const [userEmail, setUserEmail] = useState("");
 
-  // Get current user email from token/session for the OTP verification
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user")); // Adjust based on where you store user data
+    const user = JSON.parse(localStorage.getItem("user"));
     if (user && user.email) {
       setUserEmail(user.email);
     }
@@ -141,7 +136,7 @@ function Donate() {
               <StripePaymentForm 
                 campaignId={id} 
                 amount={amount} 
-                donorEmail={userEmail} // Pass email to Stripe form
+                donorEmail={userEmail}
                 onSuccess={() => navigate("/donor/my-donations")} 
               />
             </Elements>

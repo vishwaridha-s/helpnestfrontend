@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./campaignHistory.css";
 import API from "../../api/axios";
 
-const SERVER_URL = "http://localhost:8080";
+const SERVER_URL = import.meta.env.VITE_API_BASE_URL;
 
 function CampaignHistory() {
   const [list, setList] = useState([]);

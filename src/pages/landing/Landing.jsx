@@ -1,20 +1,15 @@
 import "./Landing.css";
 
 function Landing() {
-  // ✅ OAuth URL (works for BOTH local + production)
   const OAUTH_URL =
     import.meta.env.VITE_API_BASE_URL + "/oauth2/authorization/google";
 
-  // REGISTER FLOW (role chosen)
   const handleOAuth = (role) => {
-    // Used ONLY for registration
     localStorage.setItem("selectedRole", role);
     window.location.href = OAUTH_URL;
   };
 
-  // LOGIN FLOW (existing user)
   const handleLogin = () => {
-    // Role comes from DB
     localStorage.removeItem("selectedRole");
     window.location.href = OAUTH_URL;
   };
@@ -23,13 +18,11 @@ function Landing() {
     <div className="landing-container">
       <div className="landing-overlay" />
 
-      {/* BRAND / LOGO */}
       <div className="brand">
         <div className="logo-placeholder">◎</div>
         <span className="brand-name">HelpNest</span>
       </div>
 
-      {/* HERO TEXT */}
       <div className="hero-text">
         <span className="hero-small">Together we can</span>
         <h1 className="hero-main">
@@ -39,7 +32,6 @@ function Landing() {
         <div className="hero-accent" />
       </div>
 
-      {/* ABOUT TEXT */}
       <div className="about-text">
         <p>
           At <strong>HelpNest</strong>, we believe kindness becomes powerful when
@@ -54,7 +46,6 @@ function Landing() {
         </p>
       </div>
 
-      {/* CTA CARD */}
       <div className="landing-card glass">
         <p className="cta-text">Join the HelpNest community</p>
 
@@ -63,7 +54,6 @@ function Landing() {
           account.
         </p>
 
-        {/* REGISTER BUTTONS */}
         <div className="landing-actions">
           <button
             className="btn primary oauth-btn"
@@ -80,7 +70,6 @@ function Landing() {
           </button>
         </div>
 
-        {/* LOGIN LINK */}
         <p
           style={{
             marginTop: "22px",
@@ -101,7 +90,6 @@ function Landing() {
           </span>
         </p>
 
-        {/* DIVIDER */}
         <div
           style={{
             margin: "28px 0",
@@ -110,7 +98,6 @@ function Landing() {
           }}
         />
 
-        {/* TRUST LINE */}
         <p style={{ fontSize: "14px", opacity: 0.75 }}>
           🔒 Secure authentication powered by Google OAuth
         </p>

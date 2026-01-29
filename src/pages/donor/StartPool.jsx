@@ -77,7 +77,6 @@ function StartPool() {
           </div>
 
           <div className="form-actions">
-            {/* CANCEL BUTTON */}
             <button 
               type="button" 
               className="btn-cancel" 
@@ -87,7 +86,6 @@ function StartPool() {
               CANCEL
             </button>
 
-            {/* SUBMIT BUTTON */}
             <button 
               type="submit" 
               className="btn-launch"

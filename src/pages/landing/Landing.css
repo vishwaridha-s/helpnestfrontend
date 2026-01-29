@@ -1,78 +1,61 @@
-/* =========================================================
-   PAGE BACKGROUND SETTINGS
-   - Controls full screen background image
-   - Change image URL here if needed
-========================================================= */
+
 .landing-container {
-  height: 100vh; /* Full viewport height */
-  width: 100%; /* Full width */
-  background-image: url("https://plus.unsplash.com/premium_photo-1730005721833-62fbdb9193d3"); /* Background image */
-  background-size: cover; /* Cover entire screen */
-  background-position: center; /* Center image */
-  position: relative; /* Required for absolute children */
-  color: white; /* Default text color */
+  height: 100vh;
+  width: 100%;
+  background-image: url("https://plus.unsplash.com/premium_photo-1730005721833-62fbdb9193d3");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
 }
 
 /* Dark overlay for readability over image */
 .landing-overlay {
   position: absolute;
-  inset: 0; /* Covers entire container */
-  background: rgba(0, 0, 0, 0.45); /* Adjust darkness here */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
 }
 
-/* =========================================================
-   BRAND / LOGO SECTION
-   - Placeholder logo + project name
-   - Replace logo later without layout change
-========================================================= */
 .brand {
   position: absolute;
-  top: 6%; /* Distance from top of screen */
-  left: 6%; /* Distance from left */
+  top: 6%;
+  left: 6%;
   display: flex;
   align-items: center;
-  gap: 12px; /* Space between logo and name */
+  gap: 12px;
 }
 
-/* Circular logo placeholder */
 .logo-placeholder {
-  width: 45px; /* Logo size */
+  width: 45px;
   height: 45px;
-  border-radius: 50%; /* Makes it round */
-  background: rgba(255,255,255,0.85); /* Light background */
-  color: #2e2e2e; /* Logo symbol color */
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  color: #2e2e2e;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Project name text */
 .brand-name {
-  font-size: 50px; /* Project name size */
-  font-weight: 700; /* Bold */
-  letter-spacing: 0.6px; /* Slight spacing for elegance */
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
 }
 
-/* =========================================================
-   HERO TEXT (POSTER STYLE)
-   - Main editorial typography
-   - This is the visual focus
-========================================================= */
 .hero-text {
   position: absolute;
   top: 23%;
   left: 6%;
-  max-width: 820px;   /* ⬅ makes headline stretch toward card */
+  max-width: 820px;
 }
 
 
-/* Small uppercase line above main heading */
 .hero-small {
   text-transform: uppercase;
-  letter-spacing: 3px; /* Spaced letters */
+  letter-spacing: 3px;
   font-size: 15px;
-  opacity: 0.85; /* Softer appearance */
+  opacity: 0.85;
 }
 
 /* Main headline */
@@ -115,84 +98,65 @@
   color: #ffffff;
 }
 
-/* =========================================================
-   CTA CARD (GLASS EFFECT)
-   - Primary action area
-   - EDIT SIZE & POSITION HERE
-========================================================= */
 .landing-card {
   position: absolute;
-  right:8%; /* Distance from right edge */
-  top: 50%; /* Vertical center */
-  transform: translateY(-50%); /* Perfect centering */
+  right:8%;
+  top: 50%;
+  transform: translateY(-50%);
 
-  width: 500px;        /* 🔧 CHANGE CARD WIDTH HERE */
-  padding: 44px 48px;  /* 🔧 CHANGE INNER SPACING HERE */
+  width: 500px;
+  padding: 44px 48px;
 
-  border-radius: 26px; /* 🔧 Corner roundness */
+  border-radius: 26px;
   text-align: center;
 }
 
-/* Glass effect styling */
 .landing-card.glass {
-  background: rgba(255, 255, 255, 0.10); /* Glass transparency */
-  border: 1px solid rgba(255, 255, 255, 0.28); /* Glass border */
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
-/* =========================================================
-   CTA TEXT & BUTTON LAYOUT
-========================================================= */
 .cta-text {
-  font-size: 30px; /* CTA heading size */
+  font-size: 30px;
   font-weight: 600;
   margin-bottom: 28px;
 }
 
-/* Button stack */
 .landing-actions {
   display: flex;
   flex-direction: column;
-  gap: 18px; /* Space between buttons */
+  gap: 18px;
 }
 
-/* =========================================================
-   BUTTON STYLES
-========================================================= */
 .btn {
-  padding: 16px 32px; /* Button size */
-  border-radius: 28px; /* Rounded buttons */
+  padding: 16px 32px;
+  border-radius: 28px;
   font-size: 16px;
   cursor: pointer;
   border: none;
   transition: all 0.3s ease;
 }
 
-/* Primary button (Login) */
 .btn.primary {
   background: white;
   color: #2e2e2e;
 }
 
-/* Hover effect */
 .btn.primary:hover {
   transform: translateY(-2px);
 }
 
-/* Secondary button (Sign Up) */
 .btn.secondary {
   background: transparent;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-/* Secondary hover */
 .btn.secondary:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* =========================================================
-   CARD HOVER EFFECT
-========================================================= */
+
 .landing-card:hover {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
 }

@@ -1,4 +1,4 @@
-import API from "../api/axios"; // Adjust path as needed
+import API from "../api/axios";
 
 export const saveAuth = (data) => {
   localStorage.setItem("token", data.token);

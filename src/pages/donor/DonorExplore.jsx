@@ -4,7 +4,7 @@ import API from "../../api/axios";
 import ShareModal from "./ShareModal";
 import "./donorExplore.css";
 
-const SERVER_URL = "http://localhost:8080";
+const SERVER_URL = import.meta.env.VITE_API_BASE_URL;
 
 function DonorExplore() {
   const [campaigns, setCampaigns] = useState([]);
@@ -35,7 +35,6 @@ function DonorExplore() {
 
       <div className="explore-grid">
         {campaigns.map((c) => {
-          // Logic exactly like your History page to ensure images load
           const imagePath = c.imageUrl ? c.imageUrl.replace(/^\//, '') : '';
           const fullImageUrl = `${SERVER_URL}/${imagePath}`;
           const progress = (c.collectedAmount / c.targetAmount) * 100;

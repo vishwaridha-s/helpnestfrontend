@@ -13,10 +13,10 @@ import Profile from "./pages/organizer/Profile";
 import CampaignHistory from "./pages/organizer/CampaignHistory";
 
 // Donor Components
-import DonorLayout from "./pages/donor/DonorLayout"; // Create this in donor folder
+import DonorLayout from "./pages/donor/DonorLayout";
 import DonorExplore from "./pages/donor/DonorExplore"; 
 import DonorMyDonations from "./pages/donor/MyDonation"; 
-import DonorPools from "./pages/donor/DonorPools"; // This is the "Dashboard" for pools
+import DonorPools from "./pages/donor/DonorPools";
 import Donate from "./pages/donor/Donate";
 import StartPool from "./pages/donor/StartPool";
 
@@ -24,11 +24,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* PUBLIC ROUTES */}
+
         <Route path="/" element={<Landing />} />
         <Route path="/oauth2/redirect" element={<OAuthRedirect />} />
 
-        {/* ORGANIZER MODULE */}
         <Route path="/organizer" element={<OrganizerLayout />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
@@ -38,22 +37,20 @@ function App() {
           <Route path="start-campaign" element={<StartCampaign />} />
         </Route>
 
-        {/* DONOR MODULE - Parallel structure to Organizer */}
+
         <Route path="/donor" element={<DonorLayout />}>
-          {/* Default to explore feed */}
           <Route index element={<Navigate to="explore" replace />} />
           
           <Route path="explore" element={<DonorExplore />} />
           <Route path="my-donations" element={<DonorMyDonations />} />
           <Route path="my-pools" element={<DonorPools />} />
-          <Route path="profile" element={<Profile />} /> {/* Reusing the same Profile component */}
+          <Route path="profile" element={<Profile />} />
           
-          {/* Functional Donor Routes */}
+
           <Route path="donate/:id" element={<Donate />} />
           <Route path="create-pool" element={<StartPool />} />
         </Route>
 
-        {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

@@ -10,7 +10,6 @@
 .stat strong { font-size: 0.8rem; color: #1e293b; }
 .pool-mini-progress { height: 6px; background: #f1f5f9; border-radius: 10px; overflow: hidden; }
 .pool-mini-progress .inner { height: 100%; background: #059669; }
-/* Empty State Styling */
 .empty-pools-container {
     text-align: center;
     padding: 5rem 2rem;
@@ -55,7 +54,6 @@
     transform: scale(1.05);
 }
 
-/* Card Improvements */
 .pool-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
 .pool-status-tag { font-size: 0.6rem; background: #dcfce7; color: #15803d; padding: 2px 8px; border-radius: 4px; font-weight: 900; }
 .pool-card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; font-size: 0.7rem; color: #94a3b8; font-weight: 700; }
